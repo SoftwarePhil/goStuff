@@ -9,6 +9,7 @@ func main(){
 		vec3D := Vector3D{vec,5}
 		//vec3D2 := Vector3D{Vector{1,1},1}
 		fmt.Println("The unit vector of", vec3D.print(), "is", vec3D.unitVector().print())
+		fmt.Println("Vector", vec.print(), "times scalar 4 is", vec.scalarMult(4).print())
 }
 
 type Vector struct{
@@ -53,12 +54,12 @@ func (vec Vector3D) print() string{
 		return "(" + x + "," + y + "," + z + ")"
 }
 
-func(vec *Vector) unitVector() Vector{
+func(vec Vector) unitVector() Vector{
 	l := vec.length()
 	return Vector{(vec.x/l),(vec.y/l)}
 }
 
-func(vec *Vector3D) unitVector() Vector3D{
+func(vec Vector3D) unitVector() Vector3D{
 	l := vec.length()
 	return Vector3D{Vector{(vec.x/l), (vec.y/l)}, (vec.z/l)}
 }
@@ -69,4 +70,21 @@ func dotProduct(a,b Vector) float64{
 
 func dotProduct3D(a,b Vector3D) float64{
 		return (a.x * b.x) + (a.y * b.y) + (a.z * b.z)
+}
+
+func(vec Vector) scalarMult(x float64) Vector{
+		return Vector{(vec.x*x),(vec.y*x)}
+}
+
+func(vec Vector3D) scalarMult(x float64) Vector3D{
+		return Vector3D{Vector{(vec.x*x),(vec.y*x)},(vec.z*x)}
+}
+
+/*
+ * how pointers work, this will change the value of any vector who calls 
+ * into a zero vector
+func(v *Vector) test(){
+		*v = Vector{0,0}
+	
 }	
+*/

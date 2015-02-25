@@ -36,7 +36,7 @@ func(p Point) getStringPoint()string{
 	
 }
 
-func(rect* aRectangle) generateFourPoints()(Point, Point, Point, Point){
+func(rect aRectangle) generateFourPoints()(Point, Point, Point, Point){
 	x2 := rect.rightTopX -rect.length
 	x1 := rect.rightTopX
 	y1 := rect.rightTopY
