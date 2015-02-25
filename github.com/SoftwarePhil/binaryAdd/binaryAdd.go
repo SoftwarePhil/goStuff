@@ -32,11 +32,11 @@ type Point struct{
 func(p Point) getStringPoint()string{
 	x := strconv.FormatFloat(p.x, 'f', 2, 64)
 	y := strconv.FormatFloat(p.y, 'f', 2, 64)
-	cor := "("+ x+ ","+ y+ ")"
-	return cor
+	return "("+ x+ ","+ y+ ")"
+	
 }
 
-func(rect aRectangle) generateFourPoints()(Point, Point, Point, Point){
+func(rect* aRectangle) generateFourPoints()(Point, Point, Point, Point){
 	x2 := rect.rightTopX -rect.length
 	x1 := rect.rightTopX
 	y1 := rect.rightTopY
