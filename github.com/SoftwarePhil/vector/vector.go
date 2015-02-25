@@ -39,6 +39,12 @@ func(vec Vector3D) length() float64{
 		return math.Sqrt(math.Pow(vec.x,2) + math.Pow(vec.y,2)+math.Pow(vec.z,2))
 }
 
+func (vec Vector) print() string{
+		x := strconv.FormatFloat(vec.x,'f',2,64)
+		y := strconv.FormatFloat(vec.y,'f',2,64)
+		
+		return "(" + x + "," + y +")"
+}
 func (vec Vector3D) print() string{
 		x := strconv.FormatFloat(vec.x,'f',2,64)
 		y := strconv.FormatFloat(vec.y,'f',2,64)
@@ -47,11 +53,9 @@ func (vec Vector3D) print() string{
 		return "(" + x + "," + y + "," + z + ")"
 }
 
-func (vec Vector) print() string{
-		x := strconv.FormatFloat(vec.x,'f',2,64)
-		y := strconv.FormatFloat(vec.y,'f',2,64)
-		
-		return "(" + x + "," + y +")"
+func(vec *Vector) unitVector() Vector{
+	l := vec.length()
+	return Vector{(vec.x/l),(vec.y/l)}
 }
 
 func(vec *Vector3D) unitVector() Vector3D{
